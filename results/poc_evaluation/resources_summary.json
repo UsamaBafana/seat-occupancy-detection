@@ -1,0 +1,41 @@
+{
+  "settings": {
+    "device": "cpu",
+    "imgsz": 640,
+    "process_every": 3,
+    "face_enabled": false,
+    "sources": [
+      "0",
+      "1"
+    ],
+    "n_cams": 2,
+    "cpu_logical_cores": 16,
+    "note": "rebuilt from the per-second CSV after the run (summary step crashed); settings assumed from the run command"
+  },
+  "seconds_measured": 153,
+  "warmup_skipped_s": 5.0,
+  "mean": {
+    "proc_cpu_pct_machine": 45.322,
+    "proc_cpu_cores": 7.252,
+    "sys_cpu_pct": 53.476,
+    "rss_mb": 713.503,
+    "gpu_mem_mb": null,
+    "loops_per_s": 6.002,
+    "processed_per_s_per_cam": 2.001,
+    "detect_ms_per_s": 405.725,
+    "track_ms_per_s": 191.645,
+    "face_ms_per_s": 0.0,
+    "compute_ms_per_s": 597.38,
+    "avg_people_per_cam": 2.04,
+    "detect_ms_per_frame": 106.141,
+    "track_ms_per_frame": 61.964
+  },
+  "peak": {
+    "proc_cpu_pct_machine": 50.7,
+    "proc_cpu_cores": 8.11,
+    "sys_cpu_pct": 68.2,
+    "rss_mb": 935.0,
+    "gpu_mem_mb": null,
+    "compute_ms_per_s": 938.0
+  }
+}

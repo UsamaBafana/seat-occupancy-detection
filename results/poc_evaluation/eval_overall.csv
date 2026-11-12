@@ -1,0 +1,2 @@
+accuracy,precision,recall,f1,specificity,fpr,tp,tn,fp,fn,n_samples
+0.8898,0.7745,0.8316,0.802,0.9112,0.0888,79,236,23,16,354

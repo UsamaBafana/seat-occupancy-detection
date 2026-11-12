@@ -1,0 +1,139 @@
+{
+  "stats": {
+    "decode": {
+      "n": 1000,
+      "mean": 2.973323497455567,
+      "p50": 2.6995500084012747,
+      "p95": 4.875199869275093,
+      "max": 12.31499994173646
+    },
+    "detect": {
+      "n": 1000,
+      "mean": 79.61687680380419,
+      "p50": 65.01374999061227,
+      "p95": 190.70689985528588,
+      "max": 456.53530000709
+    },
+    "track": {
+      "n": 1000,
+      "mean": 39.27109559462406,
+      "p50": 28.81634992081672,
+      "p95": 106.28900001756847,
+      "max": 199.75130003876984
+    },
+    "face_per_call": {
+      "n": 0,
+      "mean": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "max": 0.0
+    }
+  },
+  "avg_detections": 0.908,
+  "avg_people": 1.021,
+  "max_people": 2,
+  "frames": 1000,
+  "wall_s": 121.88742909999564,
+  "source": {
+    "path": "recordings\\home_bench_cam1.mp4",
+    "width": 1280,
+    "height": 720,
+    "fps": 30.02
+  },
+  "settings": {
+    "weights": "models/yolov8n.pt",
+    "device": "cpu",
+    "imgsz": 640,
+    "face_enabled": false,
+    "face_model": null,
+    "face_detector": null,
+    "face_cache_ttl_s": null,
+    "embedder": "mobilenet"
+  },
+  "memory": {
+    "rss_start_mb": 485.199872,
+    "rss_end_mb": 549.277696,
+    "gpu_peak_mb": null
+  },
+  "hardware": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "python": "3.12.2",
+    "device": "cpu",
+    "cpu_logical_cores": 16,
+    "ram_total_gb": 16.9,
+    "torch": "2.14.0+cpu"
+  },
+  "projection": {
+    "statistic": "mean",
+    "assumptions": {
+      "stream_fps": 15.0,
+      "target_fps": 1.0,
+      "people_per_camera": 1.021,
+      "face_calls_per_s_per_cam": 0.0,
+      "headroom": 0.7,
+      "mbps_per_camera": 3.0,
+      "machine_cost": null,
+      "machine_watts": null,
+      "tariff_per_kwh": null
+    },
+    "per_camera_ms_per_s": {
+      "decode": 44.59985246183351,
+      "detect_track": 118.88797239842825,
+      "face": 0.0,
+      "total": 163.48782486026175
+    },
+    "cameras_per_machine": 4,
+    "table": [
+      {
+        "cameras": 1,
+        "load_ms_per_s": 163.48782486026175,
+        "util_one_machine_pct": 16.348782486026174,
+        "machines_needed": 1,
+        "bandwidth_mbps": 3.0
+      },
+      {
+        "cameras": 2,
+        "load_ms_per_s": 326.9756497205235,
+        "util_one_machine_pct": 32.69756497205235,
+        "machines_needed": 1,
+        "bandwidth_mbps": 6.0
+      },
+      {
+        "cameras": 5,
+        "load_ms_per_s": 817.4391243013088,
+        "util_one_machine_pct": 81.74391243013088,
+        "machines_needed": 2,
+        "bandwidth_mbps": 15.0
+      },
+      {
+        "cameras": 10,
+        "load_ms_per_s": 1634.8782486026175,
+        "util_one_machine_pct": 163.48782486026175,
+        "machines_needed": 3,
+        "bandwidth_mbps": 30.0
+      },
+      {
+        "cameras": 20,
+        "load_ms_per_s": 3269.756497205235,
+        "util_one_machine_pct": 326.9756497205235,
+        "machines_needed": 5,
+        "bandwidth_mbps": 60.0
+      },
+      {
+        "cameras": 50,
+        "load_ms_per_s": 8174.391243013088,
+        "util_one_machine_pct": 817.4391243013088,
+        "machines_needed": 12,
+        "bandwidth_mbps": 150.0
+      },
+      {
+        "cameras": 100,
+        "load_ms_per_s": 16348.782486026175,
+        "util_one_machine_pct": 1634.8782486026175,
+        "machines_needed": 24,
+        "bandwidth_mbps": 300.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────
+#  Office Occupancy Detection  — Central Configuration
+# ─────────────────────────────────────────────────────────────
+
+# ── Model ────────────────────────────────────────────────────
+model:
+  weights: "models/yolov8n.pt"            
+  custom_weights: ""            # path to fine-tuned weights, models/best_v4.pt
+  confidence_threshold: 0.35       # min detection confidence (was 0.55 - seated people seen from behind were missed)
+  iou_threshold: 0.50
+  device: "cpu"                    # "cpu" | "cuda" | "mps"
+  imgsz: 640                       # inference size — 320 is faster on CPU, 640 more accurate
+
+# ── Tracker ──────────────────────────────────────────────────
+tracker:
+  max_age: 30                      # frames before track is deleted (was 10 - tracks dropped when a seated person was briefly missed)
+  n_init: 3                        # detections before track is confirmed
+  max_iou_distance: 0.7
+  embedder: "mobilenet"            # appearance embedding backbone
+
+# ── Temporal Inference ───────────────────────────────────────
+temporal:
+  window_size: 16                 # number of recent frames to consider (was 6 - walk-bys flipped seats)
+  occupied_threshold: 0.60          # fraction of frames that must show occupation (was 0.50)
+  cooldown_frames: 10              # frames to wait before flipping state (stops toggling)
+
+# ── Face Recognition ─────────────────────────────────────────
+face_recognition:
+  enabled: true
+  auto_enroll: true
+  model: "VGG-Face"                # VGG-Face | Facenet | ArcFace | DeepFace
+  detector_backend: "mtcnn"       # opencv | ssd | mtcnn | retinaface
+  distance_metric: "cosine"        # cosine | euclidean | euclidean_l2
+  threshold: 0.55
+  known_faces_dir: "known_faces/"
+  min_face_size: 40                # pixels — smaller faces skipped
+
+# ── Seat Regions of Interest ─────────────────────────────────
+seats:
+  # Define seat ROIs as [x1, y1, x2, y2] in pixel coords (or draw / auto-detect them at run time)
+  auto_detect: false
+  rois: []
+  overlap_threshold: 0.25          # min fraction of the person box inside the seat box (0.40 missed seated people: their box is much taller than the seat box)
+  lower_body_portion: 0.40         # NOT YET READ by the matching code: proposed lower-body fix, see report Appendix B
+
+
+# ── Input / Output ───────────────────────────────────────────
+io:
+  source: 0                        # 0 = webcam | path/to/video.mp4 | rtsp://...
+  camera_width: 1280               # webcam capture size (640x480 is a cropped, narrower view on many webcams)
+  camera_height: 720               # seat boxes are pixel coords: redraw them if you change this
+  output_dir: "output/"
+  save_annotated_video: true
+  save_occupancy_log: true
+  log_interval_seconds: 5          # how often to write occupancy state to CSV
+  process_every_n_frames: 2        # 1 = every frame; 2 = every other frame (faster)
+  warmup_frames: 45                # discard early frames so webcam exposure settles
+
+# ── Evaluation ───────────────────────────────────────────────
+evaluation:
+  ground_truth_csv: null           # path to CSV with ground truth labels
+  metrics: ["precision", "recall", "f1", "accuracy"]
+  iou_threshold: 0.50
+
+# ── Display ──────────────────────────────────────────────────
+display:
+  show_window: true
+  draw_tracks: true
+  draw_seat_rois: true
+  draw_face_labels: true
+  window_title: "Office Occupancy Monitor"
+  font_scale: 0.4
+
+  

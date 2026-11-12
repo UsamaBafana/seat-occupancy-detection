@@ -1,0 +1,18 @@
+[project]
+name = "seat-occupancy-detection"
+version = "1.0.0"
+description = "Multi-camera seat-level occupancy detection for smart buildings (NTU Final Year Project)"
+requires-python = ">=3.11"
+authors = [{ name = "Usama Bin Ali Bafana" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["F", "E9", "B", "I"]
+ignore = ["B905"]

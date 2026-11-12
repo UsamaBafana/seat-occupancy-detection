@@ -1,0 +1,13 @@
+seat_id,time_s,state
+cam0_seat_01,0.000,vacant
+cam0_seat_01,57.833,occupied
+cam0_seat_01,64.541,vacant
+cam0_seat_01,95.672,occupied
+global_desk1,0.000,vacant
+global_desk1,54.417,occupied
+global_desk1,69.982,vacant
+global_desk1,94.533,occupied
+global_desk2,0.000,vacant
+global_desk2,59.099,occupied
+global_desk2,67.198,vacant
+global_desk2,97.191,occupied

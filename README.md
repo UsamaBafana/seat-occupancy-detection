@@ -101,7 +101,7 @@ Tested with **Python 3.12 on Windows 11**, CPU only. Camera capture uses the Win
 work on any platform.
 
 ```powershell
-git clone <repository-url>
+https://github.com/UsamaBafana/seat-occupancy-detection
 cd <repository-folder>
 python -m venv .venv
 .venv\Scripts\activate            # macOS / Linux: source .venv/bin/activate
